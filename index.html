@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ESP8266 WiFi Visualization</title>
+  <script>
+    function fetchData() {
+      fetch('http://YOUR-ESP-IP/data') // Replace with ESP8266 IP
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("signal").innerText = "WiFi Signal: " + data.signal + " dBm";
+        });
+    }
+    setInterval(fetchData, 5000);
+  </script>
+</head>
+<body>
+  <h3>ESP8266 WiFi Scanner</h3>
+  <p id="signal">WiFi Signal: --</p>
+</body>
+</html>
